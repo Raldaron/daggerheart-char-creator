@@ -1,0 +1,14 @@
+[
+  {
+    "id": "fighter",
+    "name": "Fighter",
+    "startingEvasion": 12,
+    "startingHitPoints": 8
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "startingEvasion": 14,
+    "startingHitPoints": 6
+  }
+]
