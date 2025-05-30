@@ -1,0 +1,23 @@
+[
+  {
+    "id": "warrior",
+    "name": "Warrior",
+    "blurb": "Hearty fighters who excel in melee combat.",
+    "icon": "Shield",
+    "subclasses": ["Knight", "Berserker"]
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "blurb": "Stealthy scoundrels who rely on cunning.",
+    "icon": "Swords",
+    "subclasses": ["Assassin", "Thief"]
+  },
+  {
+    "id": "mage",
+    "name": "Mage",
+    "blurb": "Masters of arcane powers and magic.",
+    "icon": "Wand2",
+    "subclasses": ["Sorcerer", "Wizard"]
+  }
+]
