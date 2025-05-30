@@ -1,25 +1,37 @@
 import { create } from 'zustand'
+import { type EquipmentSelection, validateEquipmentSelection } from './validateEquipmentSelection'
 
-interface CoreStats {
-  level: number
-  evasion: number
-  hitPoints: number
-  stressSlots: number
-  hope: number
+export interface CharacterStore {
+  equipment: EquipmentSelection
+  setPrimary: (id: string) => void
+  setSecondary: (id: string | null) => void
+  setArmor: (id: string) => void
+  setPotion: (id: string) => void
+  coreEquipmentValid: () => boolean
 }
 
-interface CharacterState {
-  coreStats: CoreStats
-  armorScore?: number
-}
-
-export const useCharacterStore = create<CharacterState>(() => ({
-  coreStats: {
-    level: 1,
-    evasion: 10,
-    hitPoints: 5,
-    stressSlots: 3,
-    hope: 0,
+export const useCharacterStore = create<CharacterStore>((set, get) => ({
+  equipment: {
+    primaryId: null,
+    secondaryId: null,
+    armorId: null,
+    potionId: null,
   },
-  armorScore: undefined,
+  setPrimary: (id: string) =>
+    set((state) => ({
+      equipment: { ...state.equipment, primaryId: id },
+    })),
+  setSecondary: (id: string | null) =>
+    set((state) => ({
+      equipment: { ...state.equipment, secondaryId: id },
+    })),
+  setArmor: (id: string) =>
+    set((state) => ({
+      equipment: { ...state.equipment, armorId: id },
+    })),
+  setPotion: (id: string) =>
+    set((state) => ({
+      equipment: { ...state.equipment, potionId: id },
+    })),
+  coreEquipmentValid: () => validateEquipmentSelection(get().equipment),
 }))

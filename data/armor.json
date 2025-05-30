@@ -1,0 +1,38 @@
+[
+  {
+    "id": "gambeson",
+    "name": "Gambeson Armor",
+    "tier": 1,
+    "baseMajor": 5,
+    "baseSevere": 11,
+    "baseArmorScore": 3,
+    "feature": "Flexible: +1 to Evasion"
+  },
+  {
+    "id": "leather",
+    "name": "Leather Armor",
+    "tier": 1,
+    "baseMajor": 6,
+    "baseSevere": 13,
+    "baseArmorScore": 3,
+    "feature": ""
+  },
+  {
+    "id": "chainmail",
+    "name": "Chainmail Armor",
+    "tier": 1,
+    "baseMajor": 7,
+    "baseSevere": 15,
+    "baseArmorScore": 4,
+    "feature": "Heavy: −1 to Evasion"
+  },
+  {
+    "id": "full_plate",
+    "name": "Full Plate Armor",
+    "tier": 1,
+    "baseMajor": 8,
+    "baseSevere": 17,
+    "baseArmorScore": 4,
+    "feature": "Very Heavy: −2 to Evasion; −1 to Agility"
+  }
+]

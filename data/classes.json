@@ -1,0 +1,164 @@
+[
+  {
+    "id": "bard",
+    "name": "Bard",
+    "description": "Charismatic performers who sway crowds with music, story, or wit.",
+    "domains": ["Codex", "Grace"],
+    "startingEvasion": 10,
+    "startingHitPoints": 5,
+    "classItems": "A romance novel or a letter never opened",
+    "hopeFeature": {
+      "name": "Make a Scene",
+      "description": "Spend 3 Hope to Distract a target within Close range, giving them –2 Difficulty."
+    },
+    "classFeature": {
+      "name": "Rally",
+      "description": "Once per session give each ally (and yourself) a Rally Die (d6) that can be spent to boost rolls or clear Stress."
+    },
+    "subclasses": ["Troubadour", "Wordsmith"]
+  },
+  {
+    "id": "druid",
+    "name": "Druid",
+    "description": "Guardians of the wild who channel primal magic and shift into beasts.",
+    "domains": ["Arcana", "Sage"],
+    "startingEvasion": 10,
+    "startingHitPoints": 6,
+    "classItems": "A small bag of rocks and bones or a strange pendant found in the dirt",
+    "hopeFeature": {
+      "name": "Evolution",
+      "description": "Spend 3 Hope to transform into a Beastform without Stress, raising one trait by +1."
+    },
+    "classFeature": {
+      "name": "Beastform",
+      "description": "Mark Stress to magically transform into a creature of your tier, gaining its features and bonuses."
+    },
+    "subclasses": ["Warden of the Elements", "Warden of Renewal"]
+  },
+  {
+    "id": "guardian",
+    "name": "Guardian",
+    "description": "Stalwart protectors whose ferocity shields their companions.",
+    "domains": ["Blade", "Valor"],
+    "startingEvasion": 9,
+    "startingHitPoints": 7,
+    "classItems": "A totem from your mentor or a secret key",
+    "hopeFeature": {
+      "name": "Frontline Tank",
+      "description": "Spend 3 Hope to clear 2 Armor Slots."
+    },
+    "classFeature": {
+      "name": "Unstoppable",
+      "description": "Once per long rest become Unstoppable, reducing damage severity and adding an Unstoppable Die to damage rolls."
+    },
+    "subclasses": ["Stalwart", "Vengeance"]
+  },
+  {
+    "id": "ranger",
+    "name": "Ranger",
+    "description": "Cunning hunters and trackers who strike with patient precision.",
+    "domains": ["Bone", "Sage"],
+    "startingEvasion": 12,
+    "startingHitPoints": 6,
+    "classItems": "A trophy from your first kill or a seemingly broken compass",
+    "hopeFeature": {
+      "name": "Hold Them Off",
+      "description": "Spend 3 Hope to apply a successful weapon attack roll to up to two additional adversaries in range."
+    },
+    "classFeature": {
+      "name": "Ranger’s Focus",
+      "description": "Spend Hope to mark a target as your Focus, gaining tracking and damage bonuses against them."
+    },
+    "subclasses": ["Beastbound", "Wayfinder"]
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "description": "Masters of stealth, deceit, and devastating underhanded strikes.",
+    "domains": ["Grace", "Midnight"],
+    "startingEvasion": 12,
+    "startingHitPoints": 6,
+    "classItems": "A set of forgery tools or a grappling hook",
+    "hopeFeature": {
+      "name": "Rogue’s Dodge",
+      "description": "Spend 3 Hope to gain +2 Evasion until an attack succeeds against you or you rest."
+    },
+    "classFeature": {
+      "name": "Cloaked",
+      "description": "Whenever you would be Hidden you are instead Cloaked—remaining unseen until you act or move in sight."
+    },
+    "subclasses": ["Nightwalker", "Syndicate"]
+  },
+  {
+    "id": "seraph",
+    "name": "Seraph",
+    "description": "Divinely empowered crusaders who heal allies and smite foes.",
+    "domains": ["Splendor", "Valor"],
+    "startingEvasion": 9,
+    "startingHitPoints": 7,
+    "classItems": "A bundle of offerings or a sigil of your god",
+    "hopeFeature": {
+      "name": "Life Support",
+      "description": "Spend 3 Hope to clear a Hit Point on an ally within Close range."
+    },
+    "classFeature": {
+      "name": "Prayer Dice",
+      "description": "Roll d4 Prayer Dice equal to your Spellcast trait each session; spend them to protect or aid allies."
+    },
+    "subclasses": ["Divine Wielder", "Winged Sentinel"]
+  },
+  {
+    "id": "sorcerer",
+    "name": "Sorcerer",
+    "description": "Innate spellcasters who channel raw, volatile magic.",
+    "domains": ["Arcana", "Midnight"],
+    "startingEvasion": 10,
+    "startingHitPoints": 6,
+    "classItems": "A whispering orb or a family heirloom",
+    "hopeFeature": {
+      "name": "Volatile Magic",
+      "description": "Spend 3 Hope to reroll any number of damage dice on a magic attack."
+    },
+    "classFeature": {
+      "name": "Arcane Sense",
+      "description": "Sense the presence of magical people and objects within Close range."
+    },
+    "subclasses": ["Elemental Origin", "Primal Origin"]
+  },
+  {
+    "id": "warrior",
+    "name": "Warrior",
+    "description": "Disciplined weapon masters who excel in open combat.",
+    "domains": ["Blade", "Bone"],
+    "startingEvasion": 11,
+    "startingHitPoints": 6,
+    "classItems": "The drawing of a lover or a sharpening stone",
+    "hopeFeature": {
+      "name": "No Mercy",
+      "description": "Spend 3 Hope to gain +1 bonus to all attack rolls until your next rest."
+    },
+    "classFeature": {
+      "name": "Attack of Opportunity",
+      "description": "React when an adjacent enemy moves away, choosing to halt, damage, or follow them on success."
+    },
+    "subclasses": ["Call of the Brave", "Call of the Slayer"]
+  },
+  {
+    "id": "wizard",
+    "name": "Wizard",
+    "description": "Scholars of arcane lore who wield studied magic and secrets.",
+    "domains": ["Codex", "Splendor"],
+    "startingEvasion": 11,
+    "startingHitPoints": 5,
+    "classItems": "A book you’re trying to translate or a tiny harmless elemental pet",
+    "hopeFeature": {
+      "name": "Not This Time",
+      "description": "Spend 3 Hope to force an adversary within Far range to reroll an attack or damage roll."
+    },
+    "classFeature": {
+      "name": "Prestidigitation",
+      "description": "Perform harmless magical tricks at will—lighting candles, minor illusions, mending, etc."
+    },
+    "subclasses": ["School of Knowledge", "School of War"]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "rope50ft": { "name": "50 ft Rope", "type": "gear" },
+  "torch":    { "name": "Torch",      "type": "gear" },
+  "supplies": { "name": "Basic Supplies", "type": "gear" },
+  "gold":     { "name": "Handful of Gold", "type": "currency" },
+  "potionHealthMinor":  { "name": "Minor Health Potion",  "type": "potion" },
+  "potionStaminaMinor": { "name": "Minor Stamina Potion", "type": "potion" }
+}
