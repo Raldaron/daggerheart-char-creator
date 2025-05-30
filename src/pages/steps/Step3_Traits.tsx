@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core'
-import { TRAITS, MODIFIERS, validateTraits, Trait } from '../../lib/traits'
+import { TRAITS, MODIFIERS, validateTraits, type Trait } from '../../lib/traits'
 
 interface Props {
   nextStep: () => void
