@@ -1,0 +1,5 @@
+[
+  {"id": "dwarf", "name": "Dwarf", "topFeature": "Dwarven toughness", "bottomFeature": "Stonecunning"},
+  {"id": "elf", "name": "Elf", "topFeature": "Keen senses", "bottomFeature": "Fey ancestry"},
+  {"id": "human", "name": "Human", "topFeature": "Adaptability", "bottomFeature": "Versatility"}
+]
