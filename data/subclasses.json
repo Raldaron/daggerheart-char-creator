@@ -1,0 +1,209 @@
+[
+  {
+    "id": "troubadour",
+    "classId": "bard",
+    "name": "Troubadour",
+    "spellcastTrait": "Grace",
+    "shortDescription": "Play the Troubadour if you want to inspire crowds with stirring performance.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "wordsmith",
+    "classId": "bard",
+    "name": "Wordsmith",
+    "spellcastTrait": "Codex",
+    "shortDescription": "Play the Wordsmith if you want to weave language into potent magic.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "warden_of_the_elements",
+    "classId": "druid",
+    "name": "Warden of the Elements",
+    "spellcastTrait": "Arcana",
+    "shortDescription": "Channel primal forces to command earth, fire, air, and water.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "warden_of_renewal",
+    "classId": "druid",
+    "name": "Warden of Renewal",
+    "spellcastTrait": "Sage",
+    "shortDescription": "Harness nature’s cycle of life and rebirth to heal and protect.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "stalwart",
+    "classId": "guardian",
+    "name": "Stalwart",
+    "spellcastTrait": "Valor",
+    "shortDescription": "Bear the shield and stand fast against overwhelming odds.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "vengeance",
+    "classId": "guardian",
+    "name": "Vengeance",
+    "spellcastTrait": "Blade",
+    "shortDescription": "Swear oaths and pursue retribution without mercy.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "beastbound",
+    "classId": "ranger",
+    "name": "Beastbound",
+    "spellcastTrait": "Sage",
+    "shortDescription": "Forge a deep bond with an animal companion to hunt together.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "wayfinder",
+    "classId": "ranger",
+    "name": "Wayfinder",
+    "spellcastTrait": "Bone",
+    "shortDescription": "Master wilderness paths and lead allies unerringly through danger.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "nightwalker",
+    "classId": "rogue",
+    "name": "Nightwalker",
+    "spellcastTrait": "Midnight",
+    "shortDescription": "Disappear into darkness and strike unseen.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "syndicate",
+    "classId": "rogue",
+    "name": "Syndicate",
+    "spellcastTrait": "Grace",
+    "shortDescription": "Command criminal networks and manipulate the underworld.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "divine_wielder",
+    "classId": "seraph",
+    "name": "Divine Wielder",
+    "spellcastTrait": "Strength",
+    "shortDescription": "Channel martial zeal through sacred weapons of radiant power.",
+    "foundationFeatures": [
+      {"name": "Spirit Weapon", "description": "Conjure an ethereal blade of holy light."},
+      {"name": "Sparing Touch", "description": "Heal or revive allies with a benevolent touch."}
+    ],
+    "specializationFeatures": [
+      {"name": "Devout", "description": "Declare unwavering faith to amplify miracles."}
+    ],
+    "masteryFeatures": [
+      {"name": "Sacred Resonance", "description": "Your weapon thrums with divine energy, dealing additional radiant damage."}
+    ]
+  },
+  {
+    "id": "winged_sentinel",
+    "classId": "seraph",
+    "name": "Winged Sentinel",
+    "spellcastTrait": "Strength",
+    "shortDescription": "Unfurl wings of light to guard the battlefield from above.",
+    "foundationFeatures": [
+      {"name": "Wings of Light", "description": "Manifest luminous wings that grant flight and protective aura."}
+    ],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "elemental_origin",
+    "classId": "sorcerer",
+    "name": "Elemental Origin",
+    "spellcastTrait": "Instinct",
+    "shortDescription": "Bloodlines bound to raw elemental forces erupt in destructive spells.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "primal_origin",
+    "classId": "sorcerer",
+    "name": "Primal Origin",
+    "spellcastTrait": "Instinct",
+    "shortDescription": "Draw magic from ancient, untamed spirits and chaos.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "call_of_the_brave",
+    "classId": "warrior",
+    "name": "Call of the Brave",
+    "spellcastTrait": "Blade",
+    "shortDescription": "Lead charges and rally comrades through feats of valor.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "call_of_the_slayer",
+    "classId": "warrior",
+    "name": "Call of the Slayer",
+    "spellcastTrait": "Bone",
+    "shortDescription": "Hone lethal techniques to hunt the mightiest foes.",
+    "foundationFeatures": [],
+    "specializationFeatures": [],
+    "masteryFeatures": []
+  },
+  {
+    "id": "school_of_knowledge",
+    "classId": "wizard",
+    "name": "School of Knowledge",
+    "spellcastTrait": "Knowledge",
+    "shortDescription": "Pursue encyclopedic mastery of spellcraft and lore.",
+    "foundationFeatures": [
+      {"name": "Prepared", "description": "Take an additional domain card of your level or lower."},
+      {"name": "Adept", "description": "Utilize an Experience by marking Stress instead of Hope and double its effect."}
+    ],
+    "specializationFeatures": [
+      {"name": "Accomplished", "description": "Gain another domain card of your level or lower."},
+      {"name": "Perfect Recall", "description": "Reduce the Recall Cost of a domain card once per rest."}
+    ],
+    "masteryFeatures": [
+      {"name": "Brilliant", "description": "Take yet another domain card of your level or lower."},
+      {"name": "Honed Expertise", "description": "Rolling 5+ on d6 lets you use an Experience without Hope."}
+    ]
+  },
+  {
+    "id": "school_of_war",
+    "classId": "wizard",
+    "name": "School of War",
+    "spellcastTrait": "Knowledge",
+    "shortDescription": "Combine arcane study with disciplined battle tactics.",
+    "foundationFeatures": [
+      {"name": "Battlemage", "description": "Gain an additional Hit Point slot."},
+      {"name": "Face Your Fear", "description": "On success with Fear, deal +1d10 magic damage."}
+    ],
+    "specializationFeatures": [
+      {"name": "Conjure Shield", "description": "While you have 2+ Hope, add Proficiency to Evasion."},
+      {"name": "Fueled by Fear", "description": "Extra damage from Face Your Fear increases to 2d10."}
+    ],
+    "masteryFeatures": [
+      {"name": "Thrive in Chaos", "description": "Mark Stress after damage to force target to mark an extra Hit Point."},
+      {"name": "Have No Fear", "description": "Face Your Fear now adds 3d10 damage."}
+    ]
+  }
+]

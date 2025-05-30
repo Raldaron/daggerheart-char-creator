@@ -1,39 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div className="bg-blue-500 text-white p-4 rounded">
-  Tailwind is live! 🎉
-</div>
-
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col min-h-screen">
+      <header className="flex items-center bg-gray-800 text-white px-4 py-2">
+        <div className="mr-2 h-8 w-8 rounded bg-gray-600" />
+        <h1 className="text-xl font-semibold">Daggerheart Character Creator</h1>
+      </header>
+      <div className="flex flex-1">
+        <aside className="w-64 border-r border-gray-200 p-4" />
+        <main className="flex-1 p-4">
+          <p className="text-lg">
+            Welcome to the Daggerheart Character Creator.
+          </p>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

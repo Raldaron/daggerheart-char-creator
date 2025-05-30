@@ -1,0 +1,5 @@
+[
+  {"id": "mountain", "name": "Mountain", "feature": "Skilled in mountainous terrain."},
+  {"id": "forest", "name": "Forest", "feature": "Skilled in forest survival."},
+  {"id": "coastal", "name": "Coastal", "feature": "Seafaring heritage."}
+]
