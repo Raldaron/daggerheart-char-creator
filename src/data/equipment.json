@@ -1,0 +1,28 @@
+{
+  "weapons": [
+    { "name": "Club", "hands": 1, "die": 4 },
+    { "name": "Sword", "hands": 1, "die": 6 },
+    { "name": "Axe", "hands": 1, "die": 6 },
+    { "name": "Greatsword", "hands": 2, "die": 8 },
+    { "name": "Bow", "hands": 2, "die": 6 },
+    { "name": "Spear", "hands": 2, "die": 8 }
+  ],
+  "armor": [
+    { "name": "Cloth Armor", "minor": 1, "major": 3 },
+    { "name": "Leather Armor", "minor": 2, "major": 5 },
+    { "name": "Chain Mail", "minor": 3, "major": 7 },
+    { "name": "Plate Armor", "minor": 4, "major": 9 }
+  ],
+  "gear": [
+    { "name": "Rope", "weight": 1 },
+    { "name": "Torch", "weight": 1 },
+    { "name": "Rations", "weight": 1 },
+    { "name": "Waterskin", "weight": 1 }
+  ],
+  "startingKit": [
+    "Bedroll",
+    "Tinderbox",
+    "Waterskin",
+    "Rations (3 days)"
+  ]
+}
