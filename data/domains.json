@@ -1,0 +1,56 @@
+[
+  {
+    "id": "arcana",
+    "name": "Arcana",
+    "description": "Domain of innate, instinctual magic—volatile yet potent when channeled.",
+    "classes": ["druid", "sorcerer"]
+  },
+  {
+    "id": "blade",
+    "name": "Blade",
+    "description": "Domain of martial mastery and lethal steel, wielded to command life and death.",
+    "classes": ["guardian", "warrior"]
+  },
+  {
+    "id": "bone",
+    "name": "Bone",
+    "description": "Domain of tactics and the body—predict foes and hone physical perfection.",
+    "classes": ["ranger", "warrior"]
+  },
+  {
+    "id": "codex",
+    "name": "Codex",
+    "description": "Domain of rigorous magical study and written equations of power.",
+    "classes": ["bard", "wizard"]
+  },
+  {
+    "id": "grace",
+    "name": "Grace",
+    "description": "Domain of charisma—bend perception through story, charm, and lies.",
+    "classes": ["bard", "rogue"]
+  },
+  {
+    "id": "midnight",
+    "name": "Midnight",
+    "description": "Domain of shadows and secrecy—craft enigmas and control the dark.",
+    "classes": ["rogue", "sorcerer"]
+  },
+  {
+    "id": "sage",
+    "name": "Sage",
+    "description": "Domain of the natural world—tap earth’s raw magic and primal ferocity.",
+    "classes": ["druid", "ranger"]
+  },
+  {
+    "id": "splendor",
+    "name": "Splendor",
+    "description": "Domain of life—heal, spare, or end through radiant vitality.",
+    "classes": ["seraph", "wizard"]
+  },
+  {
+    "id": "valor",
+    "name": "Valor",
+    "description": "Domain of protection—raise shield and strength to safeguard allies.",
+    "classes": ["guardian", "seraph"]
+  }
+]
