@@ -1,149 +1,179 @@
-import { useCallback } from 'react'
-import { TRAITS, Trait, traitKey } from '../../types/daggerheart'
-import { useCharacterStore } from '../../stores/character'
-import { useStepStore } from '../../stores/steps'
+import { useEffect, useMemo, useState } from 'react'
+import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core'
+import { TRAITS, MODIFIERS, validateTraits, type Trait } from '../../lib/traits'
 
-const MODIFIERS = [2, 1, 1, 0, 0, -1] as const
-const modifierCounts: Record<number, number> = { 2: 1, 1: 2, 0: 2, [-1]: 1 }
+interface Props {
+  nextStep: () => void
+  prevStep: () => void
+  setField: (field: string, value: unknown) => void
+}
 
-export default function Step3_Traits() {
-  const traits = useCharacterStore((s) => s.character.traits)
-  const setField = useCharacterStore((s) => s.setField)
-  const resetTraits = useCharacterStore((s) => s.resetTraits)
+function useCoarsePointer() {
+  const [coarse, setCoarse] = useState(false)
+  useEffect(() => {
+    setCoarse(window.matchMedia('(pointer: coarse)').matches)
+  }, [])
+  return coarse
+}
 
-  const nextStep = useStepStore((s) => s.nextStep)
-  const prevStep = useStepStore((s) => s.prevStep)
+type ChipProps = {
+  id: string
+  value: number
+  trait?: Trait
+}
 
-  const usedCounts: Record<number, number> = { 2: 0, 1: 0, 0: 0, [-1]: 0 }
-  for (const trait of TRAITS) {
-    const key = traitKey(trait)
-    const val = traits[key]
-    if (val !== undefined) {
-      usedCounts[val]++
-    }
-  }
-
-  const remainingCounts: Record<number, number> = {
-    2: modifierCounts[2] - usedCounts[2],
-    1: modifierCounts[1] - usedCounts[1],
-    0: modifierCounts[0] - usedCounts[0],
-    [-1]: modifierCounts[-1] - usedCounts[-1],
-  }
-
-  const remainingChips: number[] = []
-  for (const val of [2, 1, 0, -1]) {
-    for (let i = 0; i < remainingCounts[val]; i++) {
-      remainingChips.push(val)
-    }
-  }
-
-  const allAssigned = TRAITS.every((t) => traits[traitKey(t)] !== undefined)
-  const validDistribution = [2, 1, 0, -1].every(
-    (v) => usedCounts[v] === modifierCounts[v],
+function Chip({ id, value, trait }: ChipProps) {
+  const { setNodeRef, listeners, attributes, transform } = useDraggable({
+    id,
+    data: { value, trait }
+  })
+  const style = transform ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` } : undefined
+  return (
+    <div
+      ref={setNodeRef}
+      {...listeners}
+      {...attributes}
+      style={style}
+      className="rounded-full bg-slate-200 px-3 py-1 font-mono shadow"
+    >
+      {value >= 0 ? `+${value}` : value}
+    </div>
   )
-  const canNext = allAssigned && validDistribution
+}
 
-  const assignTrait = useCallback(
-    (trait: Trait, value: number | null) => {
-      const key = traitKey(trait)
-      setField(`character.traits.${key}`, value)
-    },
-    [setField],
+function TraitRow({ trait, value }: { trait: Trait; value: number | null }) {
+  const { isOver, setNodeRef } = useDroppable({ id: trait })
+  const highlight = isOver ? 'ring-2 ring-indigo-400' : ''
+  return (
+    <div
+      ref={setNodeRef}
+      className={`flex items-center justify-between gap-2 p-2 border rounded ${highlight}`}
+    >
+      <span>{trait}</span>
+      {value != null && <Chip id={`trait-${trait}`} value={value} trait={trait} />}
+    </div>
   )
+}
 
-  const onDrop = (trait: Trait, ev: React.DragEvent<HTMLDivElement>) => {
-    ev.preventDefault()
-    const val = parseInt(ev.dataTransfer.getData('text/plain'))
-    assignTrait(trait, val)
+function Inventory({ chips }: { chips: { id: string; value: number }[] }) {
+  const { isOver, setNodeRef } = useDroppable({ id: 'inventory' })
+  const highlight = isOver ? 'ring-2 ring-indigo-400' : ''
+  return (
+    <div ref={setNodeRef} className={`flex flex-wrap gap-2 p-2 border rounded min-h-12 ${highlight}`}>
+      {chips.map((c) => (
+        <Chip key={c.id} id={c.id} value={c.value} />
+      ))}
+    </div>
+  )
+}
+
+export default function Step3_Traits({ nextStep, prevStep, setField }: Props) {
+  const initialTraits: Record<Trait, number | null> = useMemo(
+    () => Object.fromEntries(TRAITS.map((t) => [t, null])) as Record<Trait, number | null>,
+    []
+  )
+  const [localTraits, setLocalTraits] = useState<Record<Trait, number | null>>(initialTraits)
+
+  const isCoarse = useCoarsePointer()
+
+  const { ok, error } = useMemo(() => validateTraits(localTraits), [localTraits])
+
+  const inventoryChips = useMemo(() => {
+    const counts: Record<number, number> = {}
+    for (const v of MODIFIERS) counts[v] = (counts[v] ?? 0) + 1
+    for (const v of Object.values(localTraits)) if (v != null) counts[v]! -= 1
+    const chips: { id: string; value: number }[] = []
+    Object.entries(counts).forEach(([val, ct]) => {
+      for (let i = 0; i < ct; i++) chips.push({ id: `inv-${val}-${i}`, value: Number(val) })
+    })
+    return chips
+  }, [localTraits])
+
+  const handleDragEnd = (e: DragEndEvent) => {
+    const value = e.active.data.current?.value as number | undefined
+    const fromTrait = e.active.data.current?.trait as Trait | undefined
+    const overId = e.over?.id
+    const toTrait = overId && overId !== 'inventory' ? (overId as Trait) : null
+    if (value == null || overId == null) return
+
+    setLocalTraits((prev) => {
+      const next = { ...prev }
+      if (fromTrait) next[fromTrait] = null
+      if (toTrait) next[toTrait] = value
+      return next
+    })
   }
 
-  const onDragStart = (
-    ev: React.DragEvent<HTMLDivElement>,
-    val: number,
-  ) => {
-    ev.dataTransfer.setData('text/plain', String(val))
+  const reset = () => setLocalTraits(initialTraits)
+
+  const optionsForTrait = (trait: Trait) => {
+    const counts: Record<number, number> = {}
+    for (const v of MODIFIERS) counts[v] = (counts[v] ?? 0) + 1
+    for (const [t, v] of Object.entries(localTraits)) {
+      if (t === trait) continue
+      if (v != null) counts[v]! -= 1
+    }
+    const opts: number[] = []
+    Object.entries(counts).forEach(([val, ct]) => {
+      for (let i = 0; i < ct; i++) opts.push(Number(val))
+    })
+    return opts
   }
 
   return (
-    <div className="p-4 space-y-4">
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="space-y-2 md:flex-1">
-          {TRAITS.map((trait) => {
-            const key = traitKey(trait)
-            const current = traits[key]
-            return (
-              <div
-                key={trait}
-                className="border p-2 flex items-center justify-between rounded"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => onDrop(trait, e)}
+    <div className="space-y-4">
+      {isCoarse ? (
+        <div className="space-y-2">
+          {TRAITS.map((trait) => (
+            <div key={trait} className="flex items-center gap-2">
+              <span className="w-24">{trait}</span>
+              <select
+                className="border rounded p-1"
+                value={localTraits[trait] ?? ''}
+                onChange={(e) =>
+                  setLocalTraits({ ...localTraits, [trait]: e.target.value === '' ? null : Number(e.target.value) })
+                }
               >
-                <span>{trait}</span>
-                <div className="flex items-center gap-2">
-                  <select
-                    className="border p-1 rounded"
-                    value={current ?? ''}
-                    onChange={(e) =>
-                      assignTrait(
-                        trait,
-                        e.target.value === '' ? null : parseInt(e.target.value),
-                      )
-                    }
-                  >
-                    <option value="">--</option>
-                    {[2, 1, 0, -1].map((v) => {
-                      const remaining = remainingCounts[v]
-                      const disabled = remaining <= 0 && current !== v
-                      return (
-                        <option key={v} value={v} disabled={disabled}>
-                          {v > 0 ? `+${v}` : v}
-                        </option>
-                      )
-                    })}
-                  </select>
-                  <div className="w-10 h-8 flex items-center justify-center border rounded">
-                    {current !== undefined ? (current > 0 ? `+${current}` : current) : ''}
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+                <option value="">--</option>
+                {optionsForTrait(trait).map((v, i) => (
+                  <option key={`${v}-${i}`} value={v}>
+                    {v >= 0 ? `+${v}` : v}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ))}
         </div>
-        <div className="md:w-48 border p-2 rounded">
-          <p className="font-bold mb-2">Modifiers</p>
-          <div className="flex gap-2 flex-wrap">
-            {remainingChips.map((val, idx) => (
-              <div
-                key={`${val}-${idx}`}
-                className="px-2 py-1 bg-gray-200 rounded cursor-move"
-                draggable
-                onDragStart={(e) => onDragStart(e, val)}
-              >
-                {val > 0 ? `+${val}` : val}
-              </div>
+      ) : (
+        <DndContext onDragEnd={handleDragEnd}>
+          <div className="space-y-2">
+            {TRAITS.map((trait) => (
+              <TraitRow key={trait} trait={trait} value={localTraits[trait]} />
             ))}
           </div>
-        </div>
-      </div>
-      {!canNext && (
-        <div className="bg-red-100 text-red-800 p-2 rounded">
-          Assign all modifiers to traits using each value exactly once.
-        </div>
+          <Inventory chips={inventoryChips} />
+        </DndContext>
       )}
-      <div className="flex gap-2">
-        <button className="border px-4 py-2 rounded" onClick={prevStep}>
+      {error && <div className="bg-red-200 p-2 text-red-800 rounded">{error}</div>}
+      <div className="flex items-center justify-between pt-4">
+        <button className="px-4 py-2 border rounded" onClick={prevStep}>
           Back
         </button>
-        <button className="border px-4 py-2 rounded" onClick={resetTraits}>
-          Reset
-        </button>
-        <button
-          className="border px-4 py-2 rounded"
-          disabled={!canNext}
-          onClick={nextStep}
-        >
-          Next
-        </button>
+        <div className="flex items-center gap-4">
+          <a href="#" onClick={reset} className="text-sm text-indigo-600">
+            Reset
+          </a>
+          <button
+            className="px-4 py-2 border rounded bg-indigo-600 text-white disabled:opacity-50"
+            disabled={!ok}
+            onClick={() => {
+              setField('character.traits', localTraits)
+              nextStep()
+            }}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   )
