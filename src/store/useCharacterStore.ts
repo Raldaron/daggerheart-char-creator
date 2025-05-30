@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { EquipmentSelection, validateEquipmentSelection } from './validateEquipmentSelection'
+import { type EquipmentSelection, validateEquipmentSelection } from './validateEquipmentSelection'
 
 export interface CharacterStore {
   equipment: EquipmentSelection
