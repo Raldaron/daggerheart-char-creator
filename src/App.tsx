@@ -1,37 +1,16 @@
-import React from 'react'
-import { NavLink, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import CreatePage from './pages/CreatePage'
-import LoadPage from './pages/LoadPage'
-import AboutPage from './pages/AboutPage'
+import { useState } from 'react'
+import Stepper from './components/Stepper'
+import './App.css'
 
-export default function App() {
+function App() {
+  const [step, setStep] = useState(0)
+
   return (
-    <>
-      <header className="p-4 bg-gray-100">
-        <nav className="space-x-4">
-          <NavLink to="/" className="text-blue-600" end>
-            Home
-          </NavLink>
-          <NavLink to="/create" className="text-blue-600">
-            Create
-          </NavLink>
-          <NavLink to="/load" className="text-blue-600">
-            Load
-          </NavLink>
-          <NavLink to="/about" className="text-blue-600">
-            About
-          </NavLink>
-        </nav>
-      </header>
-      <main className="p-4">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/load" element={<LoadPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </main>
-    </>
+    <div className="p-4">
+      <Stepper currentStep={step} onStepChange={setStep} />
+      <div className="mt-4 text-center">Current step: {step + 1}</div>
+    </div>
   )
 }
+
+export default App
