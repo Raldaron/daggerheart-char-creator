@@ -1,9 +1,16 @@
-import Step1_Class from './pages/steps/Step1_Class'
+import { useState } from 'react'
+import Stepper from './components/Stepper'
+import './App.css'
 
-export default function App() {
+function App() {
+  const [step, setStep] = useState(0)
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Step1_Class />
+    <div className="p-4">
+      <Stepper currentStep={step} onStepChange={setStep} />
+      <div className="mt-4 text-center">Current step: {step + 1}</div>
     </div>
   )
 }
+
+export default App
