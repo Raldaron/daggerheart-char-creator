@@ -1,54 +1,45 @@
 export interface Weapon {
+  id: string;
   name: string;
-  tier: number;
-  burden: string;
-  damageByProficiency: string[];
+  damageDie: string;
+  hands: number;
 }
 
 export interface Armor {
+  id: string;
   name: string;
-  baseMajor: number;
-  baseSevere: number;
+  baseThreshold: number;
 }
 
-export const getWeaponDamage = (
-  weapon: Weapon,
-  proficiency: number
-): string => {
-  const index = Math.max(0, Math.min(proficiency - 1, weapon.damageByProficiency.length - 1));
-  return weapon.damageByProficiency[index];
-};
+/**
+ * Returns a damage expression based on the weapon die and proficiency modifier.
+ */
+export function getWeaponDamage(weapon: Weapon, proficiency: number): string {
+  return `${weapon.damageDie} + ${proficiency}`;
+}
 
-export const getArmorThresholds = (
-  armor: Armor,
-  level: number
-): { major: number; severe: number } => ({
-  major: armor.baseMajor + level,
-  severe: armor.baseSevere + level,
-});
+/**
+ * Adds the character level to the armor's base threshold.
+ */
+export function getArmorThresholds(armor: Armor, level: number): number {
+  return armor.baseThreshold + level;
+}
 
-export const validateEquipmentSelection = (
-  primary: Weapon | null,
-  secondary: Weapon | null
-): string[] => {
-  const errors: string[] = [];
+/**
+ * Validates that the selected weapons and armor meet simple equipment rules.
+ */
+export function validateEquipmentSelection(
+  weapons: Weapon[],
+  armor: Armor | null,
+): boolean {
+  if (weapons.length === 0) return false;
+  if (weapons.length > 2) return false;
 
-  if (!primary) {
-    errors.push('Primary weapon is required.');
-  } else {
-    if (primary.tier !== 1) {
-      errors.push('Primary weapon must be tier 1.');
-    }
-    if (primary.burden === 'Two-Handed' && secondary) {
-      errors.push('Two-handed weapons cannot have a secondary weapon.');
-    }
-  }
+  const twoHanded = weapons.filter(w => w.hands === 2);
+  if (twoHanded.length > 1) return false;
+  if (twoHanded.length === 1 && weapons.length > 1) return false;
 
-  if (secondary) {
-    if (secondary.burden !== 'One-Handed') {
-      errors.push('Secondary weapon must be one-handed.');
-    }
-  }
+  if (!armor) return false;
 
-  return errors;
-};
+  return true;
+}

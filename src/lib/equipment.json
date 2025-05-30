@@ -1,0 +1,9 @@
+{
+  "weapons": [
+    { "id": "broadsword", "name": "Broadsword", "damageDie": "d8", "hands": 1 },
+    { "id": "greatsword", "name": "Greatsword", "damageDie": "d8", "hands": 2 }
+  ],
+  "armors": [
+    { "id": "leather", "name": "Leather Armor", "baseThreshold": 11 }
+  ]
+}
