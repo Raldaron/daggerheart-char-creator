@@ -11,7 +11,16 @@ type ClassItem = {
   subclasses: string[]
 }
 
-const classes: ClassItem[] = (classesData as any[]).map((cls) => ({
+type ClassData = {
+  id: string
+  name: string
+  blurb?: string
+  description?: string
+  icon?: keyof typeof Icons
+  subclasses?: string[]
+}
+
+const classes: ClassItem[] = (classesData as ClassData[]).map((cls) => ({
   id: cls.id,
   name: cls.name,
   blurb: cls.blurb ?? cls.description ?? '', // fallback to description if blurb is missing
@@ -31,7 +40,7 @@ export default function Step1_Class() {
     <div className="p-4">
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {classes.map((cls) => {
-          const Icon = (Icons as any)[cls.icon] || Icons.Circle
+          const Icon = (Icons[cls.icon] || Icons.Circle) as React.ComponentType<React.SVGProps<SVGSVGElement>>
           const isOpen = open === cls.id
           return (
             <div key={cls.id} className="border rounded p-4 shadow">
