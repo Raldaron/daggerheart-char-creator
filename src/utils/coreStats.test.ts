@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { calcCoreStats, ClassData } from './calcCoreStats'
+import { calcCoreStats, type ClassData } from './calcCoreStats'
 
 // Mocked sample entry similar to classes.json
 const mockClass: ClassData = {

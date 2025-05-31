@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { Trait, traitKey } from '../types/daggerheart'
+import { traitKey } from '../types/daggerheart'
 
 export interface CharacterState {
   character: {
