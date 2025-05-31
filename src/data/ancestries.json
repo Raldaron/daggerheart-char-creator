@@ -1,5 +1,116 @@
 [
-  {"id": "dwarf", "name": "Dwarf", "topFeature": "Dwarven toughness", "bottomFeature": "Stonecunning"},
-  {"id": "elf", "name": "Elf", "topFeature": "Keen senses", "bottomFeature": "Fey ancestry"},
-  {"id": "human", "name": "Human", "topFeature": "Adaptability", "bottomFeature": "Versatility"}
+  {
+    "id": "clank",
+    "name": "Clank",
+    "description": "Sentient constructs forged from metal, wood, or stone, often self\u2011modified for style or function.",
+    "features": [
+      {"name": "Purposeful Design", "description": "At character creation, choose an Experience aligned with your built purpose and gain +1 to it."},
+      {"name": "Efficient", "description": "During a short rest you may instead take a long\u2011rest move."}
+    ]
+  },
+  {
+    "id": "drakona",
+    "name": "Drakona",
+    "description": "Wingless dragon\u2011folk with armored scales and elemental breath.",
+    "features": [
+      {"name": "Scales", "description": "When you would take Severe damage, mark 1 fewer Hit Point by marking a Stress instead."},
+      {"name": "Elemental Breath", "description": "Choose an element; treat as d8 Instinct magic attack within Very Close range."}
+    ]
+  },
+  {
+    "id": "dwarf",
+    "name": "Dwarf",
+    "description": "Stout stone\u2011blooded artisans famed for resilience and gemstone\u2011studded skin.",
+    "features": [
+      {"name": "Thick Skin", "description": "You may mark 2 Stress instead of a Hit Point when you take Minor damage."},
+      {"name": "Increased Fortitude", "description": "Spend 3 Hope to halve incoming physical damage."}
+    ]
+  },
+  {
+    "id": "elf",
+    "name": "Elf",
+    "description": "Tall, keen\u2011eared folk who enter celestial trances instead of sleep.",
+    "features": []
+  },
+  {
+    "id": "firbolg",
+    "name": "Firbolg",
+    "description": "Fur\u2011covered horned giants whose power is tempered by patience.",
+    "features": [
+      {"name": "Charge", "description": "On Agility success moving from Far to Melee, mark Stress to deal 1d12 damage to all in Melee."},
+      {"name": "Unshakable", "description": "When you would mark Stress, roll d6; on 6 do not mark it."}
+    ]
+  },
+  {
+    "id": "fungril",
+    "name": "Fungril",
+    "description": "Mushroom\u2011folk linked by vast mycelial networks and memory of death.",
+    "features": [
+      {"name": "Fungril Network", "description": "Instinct Roll (12) to telepathically converse with Fungril anywhere."},
+      {"name": "Death Connection", "description": "While touching a fresh corpse, mark Stress to glean one evocative memory."}
+    ]
+  },
+  {
+    "id": "galapa",
+    "name": "Galapa",
+    "description": "Turtle\u2011folk whose massive shells serve as natural fortresses.",
+    "features": [
+      {"name": "Shell", "description": "Add Proficiency to both damage thresholds."},
+      {"name": "Retract", "description": "Mark Stress to retreat into shell, gaining resistance to physical damage but limiting actions."}
+    ]
+  },
+  {
+    "id": "giant",
+    "name": "Giant",
+    "description": "Towering one\u2011 to three\u2011eyed people gifted with reach and endurance.",
+    "features": [
+      {"name": "Endurance", "description": "Gain an additional Hit Point slot."},
+      {"name": "Reach", "description": "Treat Melee ranges you wield as Very Close."}
+    ]
+  },
+  {
+    "id": "goblin",
+    "name": "Goblin",
+    "description": "Quick\u2011footed smallfolk with vast ears and sharper instincts.",
+    "features": [
+      {"name": "Surefooted", "description": "Ignore disadvantage on Agility rolls."},
+      {"name": "Danger Sense", "description": "Once per rest, mark Stress to force an adversary to reroll an attack against you or a Very Close ally."}
+    ]
+  },
+  {
+    "id": "halfling",
+    "name": "Halfling",
+    "description": "Good\u2011natured hairy\u2011footed wanderers blessed by fortune and uncanny bearings.",
+    "features": [
+      {"name": "Luckbringer", "description": "At session start, each party member gains a Hope."},
+      {"name": "Internal Compass", "description": "When you roll a 1 on your Hope Die, you may reroll it."}
+    ]
+  },
+  {
+    "id": "human",
+    "name": "Human",
+    "description": "Versatile, enduring people of boundless potential.",
+    "features": [
+      {"name": "High Stamina", "description": "Gain an extra Stress slot at character creation."},
+      {"name": "Adaptability", "description": "When a roll using an Experience fails, you may mark Stress to reroll."}
+    ]
+  },
+  {
+    "id": "ribbet",
+    "name": "Ribbet",
+    "description": "Amphibious folk who hatch as tadpoles and bound across land with powerful legs.",
+    "features": [
+      {"name": "Amphibious", "description": "You can breathe and move naturally underwater."},
+      {"name": "Long Tongue", "description": "As a Close Finesse weapon (d12 damage) by marking Stress."}
+    ]
+  },
+  {
+    "id": "simiah",
+    "name": "Simiah",
+    "description": "Dexterous ape\u2011folk who climb and grasp with hands, feet, and sometimes tails.",
+    "features": [
+      {"name": "Natural Climber", "description": "Advantage on Agility rolls for balancing and climbing."},
+      {"name": "Nimble", "description": "Gain +1 permanent Evasion at character creation."}
+    ]
+  }
 ]

@@ -1,5 +1,50 @@
 [
-  {"id": "mountain", "name": "Mountain", "feature": "Skilled in mountainous terrain."},
-  {"id": "forest", "name": "Forest", "feature": "Skilled in forest survival."},
-  {"id": "coastal", "name": "Coastal", "feature": "Seafaring heritage."}
+  {
+    "id": "highborne",
+    "name": "Highborne",
+    "adjectives": ["amiable", "candid", "conniving", "enterprising", "ostentatious", "unflappable"],
+    "feature": {"name": "Privilege", "description": "Advantage on rolls to consort with nobles, negotiate prices, or leverage reputation."}
+  },
+  {
+    "id": "loreborne",
+    "name": "Loreborne",
+    "adjectives": ["direct", "eloquent", "inquisitive", "patient", "rhapsodic", "witty"],
+    "feature": {"name": "Well‑Read", "description": "Advantage on rolls involving history, culture, or politics of notable people or places."}
+  },
+  {
+    "id": "orderborne",
+    "name": "Orderborne",
+    "adjectives": ["ambitious", "benevolent", "pensive", "prudent", "sardonic", "stoic"],
+    "feature": {"name": "Discipline of Faith", "description": "Advantage when invoking your creed to command respect or deterrence."}
+  },
+  {
+    "id": "ridgeborne",
+    "name": "Ridgeborne",
+    "adjectives": ["bold", "hardy", "indomitable", "loyal", "reserved", "stubborn"],
+    "feature": {"name": "Mountain‑Honed", "description": "Ignore altitude‑ or cold‑related disadvantage and gain advantage on climbing rolls."}
+  },
+  {
+    "id": "seaborne",
+    "name": "Seaborne",
+    "adjectives": ["candid", "cooperative", "exuberant", "fierce", "resolute", "weathered"],
+    "feature": {"name": "Know the Tide", "description": "Advantage on navigation, sailing, and predicting weather at sea."}
+  },
+  {
+    "id": "slyborne",
+    "name": "Slyborne",
+    "adjectives": ["calculating", "clever", "formidable", "perceptive", "shrewd", "tenacious"],
+    "feature": {"name": "Underhanded", "description": "Advantage on deception, forgery, and clandestine negotiation rolls."}
+  },
+  {
+    "id": "underborne",
+    "name": "Underborne",
+    "adjectives": ["composed", "elusive", "indomitable", "innovative", "resourceful", "unpretentious"],
+    "feature": {"name": "Low‑Light Living", "description": "You can see in darkness and have advantage on stealth checks underground."}
+  },
+  {
+    "id": "wanderborne",
+    "name": "Wanderborne",
+    "adjectives": ["inscrutable", "magnanimous", "mirthful", "reliable", "savvy", "unorthodox"],
+    "feature": {"name": "Nomadic Pack", "description": "Once per rest, grant an ally advantage by offering worldly guidance."}
+  }
 ]

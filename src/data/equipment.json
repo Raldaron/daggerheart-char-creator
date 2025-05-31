@@ -1,28 +1,166 @@
 {
+  "metadata": {
+    "version": "2025-05-SRD",
+    "notes": "Tier\u00a01 starter equipment pulled from the Daggerheart SRD (May\u00a02025). Damage dice do NOT yet include the proficiency bonus; add character.level\u2011based proficiency in UI. Armor damage thresholds are base—add level in Step\u00a05 logic."
+  },
   "weapons": [
-    { "name": "Club", "hands": 1, "die": 4 },
-    { "name": "Sword", "hands": 1, "die": 6 },
-    { "name": "Axe", "hands": 1, "die": 6 },
-    { "name": "Greatsword", "hands": 2, "die": 8 },
-    { "name": "Bow", "hands": 2, "die": 6 },
-    { "name": "Spear", "hands": 2, "die": 8 }
+    {
+      "id": "sword_long",
+      "tier": 1,
+      "hands": 1,
+      "primary": true,
+      "name": "Longsword",
+      "damageDie": "d8",
+      "range": "Melee",
+      "tags": ["versatile"],
+      "description": "Sturdy single‑handed blade popular among guardians and warriors."
+    },
+    {
+      "id": "axe_battle",
+      "tier": 1,
+      "hands": 1,
+      "primary": true,
+      "name": "Battleaxe",
+      "damageDie": "d8",
+      "range": "Melee",
+      "tags": ["cleave"],
+      "description": "Bearded axe capable of heavy chops; can mark 1 Stress to hit an adjacent target."
+    },
+    {
+      "id": "spear_great",
+      "tier": 1,
+      "hands": 2,
+      "primary": true,
+      "name": "Greatspear",
+      "damageDie": "d10",
+      "range": "Very Close",
+      "tags": ["reach"],
+      "description": "Tall hafted spear granting Reach—treat Melee range as Very Close."
+    },
+    {
+      "id": "bow_long",
+      "tier": 1,
+      "hands": 2,
+      "primary": true,
+      "name": "Longbow",
+      "damageDie": "d8",
+      "range": "Far",
+      "tags": ["ranged"],
+      "description": "Curved bow of yew; requires two hands; disadvantage in Very Close."
+    },
+    {
+      "id": "crossbow_light",
+      "tier": 1,
+      "hands": 2,
+      "primary": true,
+      "name": "Light Crossbow",
+      "damageDie": "d8",
+      "range": "Far",
+      "tags": ["ranged", "loading"],
+      "description": "Lever‑drawn arbalest; loading tag means you cannot attack twice per round with it."
+    },
+
+    {
+      "id": "dagger",
+      "tier": 1,
+      "hands": 1,
+      "primary": false,
+      "name": "Dagger",
+      "damageDie": "d6",
+      "range": "Melee",
+      "tags": ["finesse", "thrown"],
+      "description": "Slim blade easily concealed. Can be thrown to Very Close range." 
+    },
+    {
+      "id": "club",
+      "tier": 1,
+      "hands": 1,
+      "primary": false,
+      "name": "Club",
+      "damageDie": "d6",
+      "range": "Melee",
+      "tags": ["simple"],
+      "description": "Stout cudgel of wood or bone." 
+    },
+    {
+      "id": "shield_round",
+      "tier": 1,
+      "hands": 1,
+      "primary": false,
+      "name": "Round Shield",
+      "damageDie": "d4",
+      "range": "Melee",
+      "tags": ["defensive"],
+      "description": "Grants +1 Armor Score while wielded; may bash for minimal damage."
+    }
   ],
   "armor": [
-    { "name": "Cloth Armor", "minor": 1, "major": 3 },
-    { "name": "Leather Armor", "minor": 2, "major": 5 },
-    { "name": "Chain Mail", "minor": 3, "major": 7 },
-    { "name": "Plate Armor", "minor": 4, "major": 9 }
+    {
+      "id": "cloth_light",
+      "tier": 1,
+      "name": "Light Cloth",
+      "armorScore": 0,
+      "minorThreshold": 3,
+      "severeThreshold": 7,
+      "tags": ["light"],
+      "description": "Layered gambeson or padded clothing. Grants baseline protection without penalty."
+    },
+    {
+      "id": "leather_studded",
+      "tier": 1,
+      "name": "Studded Leather",
+      "armorScore": 1,
+      "minorThreshold": 4,
+      "severeThreshold": 8,
+      "tags": ["light"],
+      "description": "Hardened leather reinforced with rivets."
+    },
+    {
+      "id": "chain_shirt",
+      "tier": 1,
+      "name": "Chain Shirt",
+      "armorScore": 2,
+      "minorThreshold": 5,
+      "severeThreshold": 9,
+      "tags": ["medium"],
+      "description": "Interlocking metal rings over padded cloth; limits stealth attempts."
+    },
+    {
+      "id": "plate_half",
+      "tier": 1,
+      "name": "Half Plate",
+      "armorScore": 3,
+      "minorThreshold": 6,
+      "severeThreshold": 10,
+      "tags": ["heavy"],
+      "description": "Segmented steel breastplate, pauldrons, and greaves; noisy but stout." 
+    }
   ],
   "gear": [
-    { "name": "Rope", "weight": 1 },
-    { "name": "Torch", "weight": 1 },
-    { "name": "Rations", "weight": 1 },
-    { "name": "Waterskin", "weight": 1 }
+    {"id": "torch", "name": "Torch", "description": "Burns for 1 hour, illuminating Close range; can be used as improvised d4 fire weapon."},
+    {"id": "rope_50ft", "name": "Rope (50\u00a0ft)", "description": "Hemp rope; DC\u00a010 to break with Finesse roll."},
+    {"id": "supplies_basic", "name": "Basic Supplies", "description": "Bedroll, flint & steel, mess kit, water skin, 1\u2011week rations."},
+    {"id": "gold_handful", "name": "Handful of Gold", "description": "5\u00a0gp loose coins."}
+  ],
+  "potions": [
+    {
+      "id": "potion_health_minor",
+      "tier": 1,
+      "name": "Minor Health Potion",
+      "effect": "Remove 1 marked Hit Point slot when consumed (action)."
+    },
+    {
+      "id": "potion_stamina_minor",
+      "tier": 1,
+      "name": "Minor Stamina Potion",
+      "effect": "Clear 2 Stress when consumed (action)."
+    }
   ],
   "startingKit": [
-    "Bedroll",
-    "Tinderbox",
-    "Waterskin",
-    "Rations (3 days)"
+    "torch",
+    "rope_50ft",
+    "supplies_basic",
+    "gold_handful",
+    "potion_health_minor | potion_stamina_minor"
   ]
 }
