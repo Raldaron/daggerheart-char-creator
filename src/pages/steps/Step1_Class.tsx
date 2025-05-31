@@ -11,7 +11,13 @@ type ClassItem = {
   subclasses: string[]
 }
 
-const classes = classesData as ClassItem[]
+const classes: ClassItem[] = (classesData as any[]).map((cls) => ({
+  id: cls.id,
+  name: cls.name,
+  blurb: cls.blurb ?? cls.description ?? '', // fallback to description if blurb is missing
+  icon: (cls.icon as keyof typeof Icons) ?? 'Circle', // fallback to 'Circle' if icon is missing
+  subclasses: cls.subclasses ?? [],
+}))
 
 export default function Step1_Class() {
   const [open, setOpen] = useState<string | null>(null)
