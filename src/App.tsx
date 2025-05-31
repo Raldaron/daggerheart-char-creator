@@ -1,37 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Link, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import CreatePage from './pages/CreatePage'
+import LoadPage from './pages/LoadPage'
+import AboutPage from './pages/AboutPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div className="bg-blue-500 text-white p-4 rounded">
-  Tailwind is live! 🎉
-</div>
-
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="p-4">
+      <nav className="mb-4 flex gap-4">
+        <Link to="/" className="text-blue-600 hover:underline">
+          Home
+        </Link>
+        <Link to="/create" className="text-blue-600 hover:underline">
+          Create
+        </Link>
+        <Link to="/load" className="text-blue-600 hover:underline">
+          Load
+        </Link>
+        <Link to="/about" className="text-blue-600 hover:underline">
+          About
+        </Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/load" element={<LoadPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </div>
   )
 }
 
