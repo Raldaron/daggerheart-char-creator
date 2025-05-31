@@ -2,6 +2,7 @@ import { useState } from 'react'
 import * as Icons from 'lucide-react'
 import classesData from '../../../data/classes.json'
 import { useCharacter } from '../../store/useCharacter'
+import { useSheetStore } from '../../stores/sheet'
 
 type ClassItem = {
   id: string
@@ -31,9 +32,11 @@ const classes: ClassItem[] = (classesData as ClassData[]).map((cls) => ({
 export default function Step1_Class() {
   const [open, setOpen] = useState<string | null>(null)
   const { class: selectedClass, subclass, setClass } = useCharacter()
+  const updateSheet = useSheetStore((s) => s.updateSheet)
 
   const handleSelect = (cls: ClassItem, sub: string) => {
     setClass(cls.id, sub)
+    updateSheet({ classId: cls.id })
   }
 
   return (
