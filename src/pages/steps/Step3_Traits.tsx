@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useEffect, useMemo, useState } from 'react'
-import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core'
+import { DndContext, useDraggable, useDroppable } from '@dnd-kit/core'
+import type { DragEndEvent } from '@dnd-kit/core'
 import { TRAITS, MODIFIERS, validateTraits, type Trait } from '../../lib/traits'
 
 interface Props {

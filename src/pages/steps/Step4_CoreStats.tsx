@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
-import { useCharacterStore } from '../../store/useCharacterStore'
+import { calcCoreStats } from '../../utils/coreStats'
 
 const Step4_CoreStats = () => {
-  const coreStats = useCharacterStore((state) => state.coreStats)
-  const armorScore = useCharacterStore((state) => state.armorScore)
+  // For now core stats are calculated locally using a placeholder class.
+  // In a fuller implementation these values would come from app state.
+  const [coreStats] = useState(() =>
+    calcCoreStats({ classId: 'warrior', level: 1 })
+  )
+  const armorScore = null
 
   const [markedHP, setMarkedHP] = useState<boolean[]>([])
 
