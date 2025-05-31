@@ -1,8 +1,9 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import CreatePage from './pages/CreatePage'
-import LoadPage from './pages/LoadPage'
-import AboutPage from './pages/AboutPage'
+// src/App.tsx
+import { Link, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import CreatePage from './pages/CreatePage';
+import LoadPage from './pages/LoadPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -26,9 +27,11 @@ function App() {
         <Route path="/create" element={<CreatePage />} />
         <Route path="/load" element={<LoadPage />} />
         <Route path="/about" element={<AboutPage />} />
+        {/* Optional: Add a fallback for unmatched routes */}
+        <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
     </div>
-  )
+  );
 }
 
 export default App;
