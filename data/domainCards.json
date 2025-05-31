@@ -1,0 +1,20 @@
+[
+  {"id":"arcana_blast","domainId":"arcana","level":1,"name":"Arcane Blast","description":"Unleash a surge of raw arcane power.","cost":1},
+  {"id":"arcana_aid","domainId":"arcana","level":1,"name":"Mystic Aid","description":"Bolster an ally with magical energy.","cost":1},
+  {"id":"blade_strike","domainId":"blade","level":1,"name":"Steel Strike","description":"Strike with lethal precision.","cost":1},
+  {"id":"blade_guard","domainId":"blade","level":1,"name":"Guard Stance","description":"Ready your blade to deflect attacks.","cost":1},
+  {"id":"bone_focus","domainId":"bone","level":1,"name":"Bone Focus","description":"Center yourself for the coming fight.","cost":1},
+  {"id":"bone_resilience","domainId":"bone","level":1,"name":"Resilience","description":"Endure pain through sheer grit.","cost":1},
+  {"id":"codex_bind","domainId":"codex","level":1,"name":"Bind Rune","description":"Restrict a foe with arcane formulae.","cost":1},
+  {"id":"codex_ward","domainId":"codex","level":1,"name":"Ward","description":"Protect an area with scripted magic.","cost":1},
+  {"id":"grace_charm","domainId":"grace","level":1,"name":"Charming Presence","description":"Disarm tension with a quick smile.","cost":1},
+  {"id":"grace_illusion","domainId":"grace","level":1,"name":"Minor Illusion","description":"Conjure a brief and harmless trick.","cost":1},
+  {"id":"midnight_shroud","domainId":"midnight","level":1,"name":"Shroud","description":"Wrap yourself in concealing shadow.","cost":1},
+  {"id":"midnight_step","domainId":"midnight","level":1,"name":"Shadow Step","description":"Slip briefly between the darkness.","cost":1},
+  {"id":"sage_grow","domainId":"sage","level":1,"name":"Rapid Growth","description":"Entangle foes with sudden vines.","cost":1},
+  {"id":"sage_wild","domainId":"sage","level":1,"name":"Wild Insight","description":"Listen to the whispers of nature.","cost":1},
+  {"id":"splendor_heal","domainId":"splendor","level":1,"name":"Healing Light","description":"Mend wounds with radiant power.","cost":1},
+  {"id":"splendor_radiance","domainId":"splendor","level":1,"name":"Radiant Burst","description":"Dazzle enemies with holy light.","cost":1},
+  {"id":"valor_shield","domainId":"valor","level":1,"name":"Valor Shield","description":"Interpose a barrier for an ally.","cost":1},
+  {"id":"valor_inspire","domainId":"valor","level":1,"name":"Inspiring Cry","description":"Rally companions to greater deeds.","cost":1}
+]
