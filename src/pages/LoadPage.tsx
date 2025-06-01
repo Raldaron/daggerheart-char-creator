@@ -32,14 +32,14 @@ Styling: CSS Grid table `.loadTable { width:100%; border-collapse:collapse; }`.
 
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import classesData from '@/data/classes.json'
+import classesData from '../data/classes.json'
 import {
   listSheets,
   deleteSheet,
   importSheet,
   exportAll,
   loadSheet,
-} from '@/utils/storage'
+} from '../utils/storage'
 
 type SheetMeta = {
   id: string
