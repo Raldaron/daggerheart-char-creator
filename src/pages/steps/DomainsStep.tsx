@@ -4,6 +4,7 @@ import domainsData from '../../../data/domains.json'
 import domainCardsData from '../../../data/domainCards.json'
 import { useCharacter } from '../../store/useCharacter'
 import DomainCard from '../../components/DomainCard'
+import type { DomainCard as DomainCardType } from '../../types/daggerheart'
 
 interface ClassEntry {
   id: string
@@ -15,25 +16,16 @@ interface Domain {
   name: string
 }
 
-interface DomainCardData {
-  id: string
-  domainId: string
-  level: number
-  name: string
-  description: string
-  cost: number
-}
-
 export default function DomainsStep() {
   const { sheet, updateSheet } = useCharacter()
   const cls = (classesData as ClassEntry[]).find((c) => c.id === sheet.classId)
   const allowedDomainIds = cls ? cls.domains.map((d) => d.toLowerCase()) : []
 
-  const level1Cards = (domainCardsData as DomainCardData[]).filter(
+  const level1Cards = (domainCardsData as DomainCardType[]).filter(
     (c) => allowedDomainIds.includes(c.domainId) && c.level === 1,
   )
 
-  const cardsByDomain = level1Cards.reduce<Record<string, DomainCardData[]>>( (
+  const cardsByDomain = level1Cards.reduce<Record<string, DomainCardType[]>>((
     acc,
     card,
   ) => {

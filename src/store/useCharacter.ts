@@ -1,8 +1,7 @@
 import { create } from 'zustand';
 
-// Combined CharacterSheet interface
+// Combined CharacterSheet interface from origin/main
 export interface CharacterSheet {
-  // Fields from origin/main
   level: number;
   inventory: string[];
   equipment?: {
@@ -12,12 +11,12 @@ export interface CharacterSheet {
     damageRoll?: string;
     armorScore?: number;
   };
-  // Fields from HEAD (codex/implement-level-1-domain-card-selection)
   classId: string | null;
   subclassId: string | null;
   domainCards: string[];
 }
 
+// CharacterState interface from origin/main
 interface CharacterState {
   sheet: CharacterSheet; // Single source of truth for sheet data
   class?: string; // From HEAD, potentially display name for class
@@ -26,19 +25,17 @@ interface CharacterState {
   updateSheet: (changes: Partial<CharacterSheet> | ((prevState: CharacterSheet) => Partial<CharacterSheet>)) => void; // Combined
 }
 
+// create call from origin/main
 export const useCharacter = create<CharacterState>((set) => ({
   sheet: {
-    // Default values from origin/main
     level: 1,
     inventory: [],
-    // equipment is optional and was not in origin/main's initial sheet values explicitly
-    // Default values from HEAD
     classId: null,
     subclassId: null,
     domainCards: [],
   },
-  class: undefined, // From HEAD
-  subclass: undefined, // From HEAD
+  class: undefined,
+  subclass: undefined,
   setClass: (className, subclassName) =>
     set((state) => ({
       class: className,
