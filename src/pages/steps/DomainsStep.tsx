@@ -16,7 +16,6 @@ interface Domain {
   name: string
 }
 
-
 export default function DomainsStep() {
   const { sheet, updateSheet } = useCharacter()
   const cls = (classesData as ClassEntry[]).find((c) => c.id === sheet.classId)
@@ -26,7 +25,7 @@ export default function DomainsStep() {
     (c) => allowedDomainIds.includes(c.domainId) && c.level === 1,
   )
 
-  const cardsByDomain = level1Cards.reduce<Record<string, DomainCardType[]>>( (
+  const cardsByDomain = level1Cards.reduce<Record<string, DomainCardType[]>>((
     acc,
     card,
   ) => {

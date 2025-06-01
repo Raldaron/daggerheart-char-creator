@@ -1,33 +1,54 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
-export interface Sheet {
-  classId: string | null
-  subclassId: string | null
-  domainCards: string[]
+// Combined CharacterSheet interface from origin/main
+export interface CharacterSheet {
+  level: number;
+  inventory: string[];
+  equipment?: {
+    primaryWeapon?: unknown; // Consider using more specific types if available
+    secondaryWeapon?: unknown | null;
+    armor?: unknown;
+    damageRoll?: string;
+    armorScore?: number;
+  };
+  classId: string | null;
+  subclassId: string | null;
+  domainCards: string[];
 }
 
+// CharacterState interface from origin/main
 interface CharacterState {
-  class?: string
-  subclass?: string
-  sheet: Sheet
-  setClass: (className: string, subclassName: string) => void
-  updateSheet: (changes: Partial<Sheet>) => void
+  sheet: CharacterSheet; // Single source of truth for sheet data
+  class?: string; // From HEAD, potentially display name for class
+  subclass?: string; // From HEAD, potentially display name for subclass
+  setClass: (className: string, subclassName: string) => void; // From HEAD
+  updateSheet: (changes: Partial<CharacterSheet> | ((prevState: CharacterSheet) => Partial<CharacterSheet>)) => void; // Combined
 }
 
+// create call from origin/main
 export const useCharacter = create<CharacterState>((set) => ({
+  sheet: {
+    level: 1,
+    inventory: [],
+    classId: null,
+    subclassId: null,
+    domainCards: [],
+  },
   class: undefined,
   subclass: undefined,
-  sheet: { classId: null, subclassId: null, domainCards: [] },
   setClass: (className, subclassName) =>
     set((state) => ({
       class: className,
       subclass: subclassName,
       sheet: {
         ...state.sheet,
-        classId: className,
-        subclassId: subclassName,
+        classId: className, // Assuming className is suitable for classId
+        subclassId: subclassName, // Assuming subclassName is suitable for subclassId
       },
     })),
   updateSheet: (changes) =>
-    set((state) => ({ sheet: { ...state.sheet, ...changes } })),
-}))
+    set((state) => {
+      const newSheetState = typeof changes === 'function' ? changes(state.sheet) : changes;
+      return { sheet: { ...state.sheet, ...newSheetState } };
+    }),
+}));
