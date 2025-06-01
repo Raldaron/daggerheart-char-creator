@@ -10,6 +10,7 @@ interface CharacterState {
   equipment: string
   backstory: string
   connections: string
+  experiences: string[]
   setCharacterClass: (value: string) => void
   setHeritage: (value: string) => void
   setCulture: (value: string) => void
@@ -19,6 +20,7 @@ interface CharacterState {
   setEquipment: (value: string) => void
   setBackstory: (value: string) => void
   setConnections: (value: string) => void
+  setExperiences: (value: string[]) => void
 }
 
 export const useCharacterStore = create<CharacterState>((set) => ({
@@ -31,6 +33,7 @@ export const useCharacterStore = create<CharacterState>((set) => ({
   equipment: '',
   backstory: '',
   connections: '',
+  experiences: ['', ''],
   setCharacterClass: (value) => set({ characterClass: value }),
   setHeritage: (value) => set({ heritage: value }),
   setCulture: (value) => set({ culture: value }),
@@ -40,4 +43,5 @@ export const useCharacterStore = create<CharacterState>((set) => ({
   setEquipment: (value) => set({ equipment: value }),
   setBackstory: (value) => set({ backstory: value }),
   setConnections: (value) => set({ connections: value }),
+  setExperiences: (value) => set({ experiences: value }),
 }))

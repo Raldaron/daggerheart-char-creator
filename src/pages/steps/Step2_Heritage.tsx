@@ -6,14 +6,21 @@ import { useStore } from '../../store'
 type Ancestry = {
   id: string
   name: string
-  topFeature: string
-  bottomFeature: string
+  description: string
+  features: {
+    name: string
+    description: string
+  }[]
 }
 
 type Community = {
   id: string
   name: string
-  feature: string
+  adjectives: string[]
+  feature: {
+    name: string
+    description: string
+  }
 }
 
 export default function Step2_Heritage() {
@@ -40,11 +47,13 @@ export default function Step2_Heritage() {
   const getAncestry = (id: string | null) =>
     (ancestries as Ancestry[]).find((a) => a.id === id)
 
-  const topFeature = getAncestry(primary)?.topFeature
+  const topFeature = getAncestry(primary)?.features[0]?.name
   const bottomFeature = mixed
-    ? getAncestry(secondary)?.bottomFeature
-    : getAncestry(primary)?.bottomFeature
-  const communityFeature = (communities as Community[]).find((c) => c.id === community)?.feature
+    ? getAncestry(secondary)?.features[1]?.name
+    : getAncestry(primary)?.features[1]?.name
+  const communityFeature = (
+    communities as Community[]
+  ).find((c) => c.id === community)?.feature.name
 
   const disabledNext = !primary || !community || (mixed && !secondary)
 
