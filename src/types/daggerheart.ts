@@ -26,8 +26,11 @@ export interface HeritageOption {
 
 export interface DomainCard {
   id: string
+  domainId: string
+  level: 1 | 2 | 3 | 4 | 5
   name: string
-  description?: string
+  description: string
+  cost: number
 }
 
 export interface Character {
