@@ -23,7 +23,7 @@ Styling: max-width 46rem; margin-inline:auto; line-height:1.6.
 import { Link } from 'react-router-dom'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: package.json import via assert
-import pkg from '../../package.json' assert { type: 'json' }
+import pkg from '../../package.json' with { type: 'json' };
 
 const AboutPage: React.FC = () => {
   return (
